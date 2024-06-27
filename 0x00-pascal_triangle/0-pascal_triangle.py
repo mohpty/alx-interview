@@ -1,5 +1,7 @@
 #!/usr/bin/python3
-"""Includes function that returns pascal_triangle"""
+"""Includes function that returns
+pascal_triangle"""
+
 
 def pascal_triangle(n):
     """Return Pascal Triangle"""
