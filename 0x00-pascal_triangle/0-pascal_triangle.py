@@ -1,4 +1,8 @@
+#!/usr/bin/python3
+"""Includes function that returns pascal_triangle"""
+
 def pascal_triangle(n):
+    """Return Pascal Triangle"""
     if n <= 0:
         return []
 
