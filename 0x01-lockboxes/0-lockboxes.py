@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 '''Alx-interviews Lockboxes'''
 
+
 def canUnlockAll(boxes):
     '''check if all boxes can be opened'''
     if (type(boxes) is not list or len(boxes) == 0):
