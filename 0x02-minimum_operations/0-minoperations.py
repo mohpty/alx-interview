@@ -25,12 +25,15 @@ def minOperations(n: int) -> int:
         Reaching n * H string
         in the least number of operations
     '''
+    if n < 1:
+        return 0;
+    if n == 1:
+        return 1;
 
     pairs = find_factors_pairs(n)
-    if n < 1 or len(pairs) == 1:
+    if len(pairs) == 1:
         return 0
-    if n == 1:
-        return 1
+
     ops = 0
     x, y = pairs[-1]
     ops += x
