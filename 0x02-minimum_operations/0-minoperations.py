@@ -26,9 +26,9 @@ def minOperations(n: int) -> int:
         in the least number of operations
     '''
     if n < 1:
-        return 0;
+        return 0
     if n == 1:
-        return 1;
+        return 1
 
     pairs = find_factors_pairs(n)
     if len(pairs) == 1:
