@@ -1,46 +1,35 @@
 #!/usr/bin/python3
+'''The minimum operations coding challenge.
 '''
-    contains minOperations(n) function
-'''
 
 
-def find_factors_pairs(x):
-    # Check if the input is a valid positive integer
-    if x <= 0 or not isinstance(x, int):
-        print("Please enter a positive integer.")
-        return
-
-    factor_pairs = []
-
-    # Iterate from 1 to the square root of x
-    for i in range(1, int(x**0.5) + 1):
-        if x % i == 0:  # Check if i is a factor
-            factor_pairs.append((i, x // i))
-
-    return factor_pairs
-
-
-def minOperations(n: int) -> int:
+def minOperations(n):
+    '''Computes the fewest number of operations needed to result
+    in exactly n H characters.
     '''
-        Reaching n * H string
-        in the least number of operations
-    '''
-    if n < 1:
+    if not isinstance(n, int):
         return 0
-    if n == 1:
-        return 1
-
-    pairs = find_factors_pairs(n)
-    if len(pairs) == 1:
-        return 0
-
-    ops = 0
-    x, y = pairs[-1]
-    ops += x
-
-    # copy the factor
-    ops += 1
-
-    ops += y - 1
-
-    return ops
+    ops_count = 0
+    clipboard = 0
+    done = 1
+    # print('H', end='')
+    while done < n:
+        if clipboard == 0:
+            # init (the first copy all and paste)
+            clipboard = done
+            done += clipboard
+            ops_count += 2
+            # print('-(11)->{}'.format('H' * done), end='')
+        elif n - done > 0 and (n - done) % done == 0:
+            # copy all and paste
+            clipboard = done
+            done += clipboard
+            ops_count += 2
+            # print('-(11)->{}'.format('H' * done), end='')
+        elif clipboard > 0:
+            # paste
+            done += clipboard
+            ops_count += 1
+            # print('-(01)->{}'.format('H' * done), end='')
+    # print('')
+    return ops_count
