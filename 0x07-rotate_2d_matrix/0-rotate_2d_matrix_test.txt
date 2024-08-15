@@ -1,0 +1,16 @@
+#!/usr/bin/env fish
+python3 -m doctest -v (basename (status -f))
+exit
+"""
+>>> rotate_2d_matrix = __import__('0-rotate_2d_matrix').rotate_2d_matrix
+>>> test_cases = [
+...     [[9, 8, 7], [6, 5, 4], [3, 2, 1]],
+...     [[1, 2, 3, 12], [4, 5, 6, 11]],
+... ]
+>>> for matrix in test_cases:
+...     rotate_2d_matrix(matrix)
+...     print(matrix)
+[[3, 6, 9], [2, 5, 8], [1, 4, 7]]
+[[4, 1], [5, 2], [6, 3], [11, 12]]
+
+"""
